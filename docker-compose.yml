@@ -1,0 +1,19 @@
+services:
+  app:
+    image: belajar-slim
+    working_dir: /app
+    build:
+      dockerfile: Dockerfile
+    environment:
+      docker: "true"
+    ports:
+      - "8080:80"
+      - "8443:443/tcp"
+      - "8443:443/udp"
+    volumes:
+      - .:/app
+      - logs:/app/logs
+    tty: true
+volumes:
+  logs:
+    driver: local
